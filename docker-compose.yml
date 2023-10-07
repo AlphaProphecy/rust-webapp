@@ -2,5 +2,11 @@ version: '3'
 services:
   web:
     build: ./
+    image: rust-webapp:latest
+    develop:
+      watch:
+        - action: rebuild
+          path: ./src
+          target: /usr/src/rust-webapp/src
     ports:
-      - "8080:8080"
+      - "80:8080"
